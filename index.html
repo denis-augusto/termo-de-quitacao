@@ -9,52 +9,53 @@
     </head>
     <body>
         <div class="container pt-3">
-            <h1>Termo de quitação</h1>
+            <div id="input">
+                <h1>Termo de quitação</h1>
 
-            <div>
-                <form action="">
-                    <div class="d-flex row g-4">
-                        <div class="col-8">
-                            <label class="form-label" for="nome">Nome</label>
-                            <input type="text" class="form-control" id="nome" >
+                <div>
+                    <form action="">
+                        <div class="d-flex row g-4">
+                            <div class="col-8">
+                                <label class="form-label" for="nome">Nome</label>
+                                <input type="text" class="form-control" id="nome" >
+                            </div>
+                            <div class="col-4">
+                                <label class="form-label" for="sinistro">Sinistro</label>
+                                <input type="text" class="form-control" id="sinistro">
+                            </div>
                         </div>
-                        <div class="col-4">
-                            <label class="form-label" for="sinistro">Sinistro</label>
-                            <input type="text" class="form-control" id="sinistro">
+                        <div class="d-flex row g-4 pt-2">
+                            <div class="col-3">
+                                <label class="form-label" for="marca">Marca</label>
+                                <input type="text" class="form-control" id="marca">
+                            </div>
+                            <div class="col-3">
+                                <label class="form-label" for="modelo">Modelo</label>
+                                <input type="text" class="form-control" id="modelo">
+                            </div>
+                            <div class="col-3">
+                                <label class="form-label" for="placa">Placa</label>
+                                <input type="text" class="form-control" id="placa">
+                            </div>
+                            <div class="col-3">
+                                <label class="form-label" for="placa">Data</label>
+                                <input type="date" class="form-control" id="data">
+                            </div>
                         </div>
-                    </div>
-                    <div class="d-flex row g-4 pt-2">
-                        <div class="col-3">
-                            <label class="form-label" for="marca">Marca</label>
-                            <input type="text" class="form-control" id="marca">
+                        <div class="d-flex justify-content-end pt-4">
+                            <input type="submit" class="btn btn-primary " value="Gerar termo de quitação" onclick="oculta()">
                         </div>
-                        <div class="col-3">
-                            <label class="form-label" for="modelo">Modelo</label>
-                            <input type="text" class="form-control" id="modelo">
-                        </div>
-                        <div class="col-3">
-                            <label class="form-label" for="placa">Placa</label>
-                            <input type="text" class="form-control" id="placa">
-                        </div>
-                        <div class="col-3">
-                            <label class="form-label" for="placa">Data</label>
-                            <input type="date" class="form-control" id="data">
-                        </div>
-                    </div>
-                    <div class="d-flex justify-content-end pt-4">
-                        <input type="submit" class="btn btn-primary " value="Gerar termo de quitação" onclick="geraTermo()">
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
-
-            <div id="termo" hidden>
+            <div class="" id="termo" hidden>
                 <div class="text-center">
                     <img src="./src/img/LOGO_RETOCAR_VETOR.svg" alt="Logo Retocar" width="200">
                     <h4 class="pt-4">Termo de quitação</h2>
                 </div>
                 <div>
                     <div class="pt-4">
-                        <p><strong>Segurado/Terceiro: </strong>00000000000</p>                    
+                        <p><strong>Segurado/Terceiro: </strong><span id="nome"></span></p>                    
                         <p><strong>Sinistro: </strong>00000000000</p>
                     </div>
                     <div class="d-flex justify-content-between">
@@ -96,18 +97,16 @@
 
 
         <script>
-            function geraTermo() {
-                let nome = document.getElementById("nome").value;
-                let sinistro = document.getElementById("sinistro").value;
-                let marca = document.getElementById("marca").value;
-                let modelo = document.getElementById("modelo").value;
-                let placa = document.getElementById("placa").value;
-
-                return(
-                    console.log(nome)
-                )
+            function oculta(){
+                document.getElementById("input").hidden = true;
+                document.getElementById("termo").hidden = false;
+                window.print();
+                window.close();
+                document.getElementById("termo").hidden = true;
+                document.getElementById("input").hidden = false;
             }
         </script>
+
 
     </body>
 </html>
