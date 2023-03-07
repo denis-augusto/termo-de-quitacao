@@ -8,6 +8,8 @@
         <title>Termo de quitação</title>
     </head>
     <body>
+
+
         <div class="container pt-3">
             <div id="input">
                 <h1>Termo de quitação</h1>
@@ -48,6 +50,8 @@
                     </form>
                 </div>
             </div>
+
+
             <div class="" id="termo" hidden>
                 <div class="text-center">
                     <img src="./src/img/LOGO_RETOCAR_VETOR.svg" alt="Logo Retocar" width="200">
@@ -56,12 +60,12 @@
                 <div>
                     <div class="pt-4">
                         <p><strong>Segurado/Terceiro: </strong><span id="nomeTermo"></span></p>                    
-                        <p><strong>Sinistro: </strong>00000000000</p>
+                        <p><strong>Sinistro: </strong><span id="sinistroTermo"></p>
                     </div>
                     <div class="d-flex justify-content-between">
-                        <p><strong>Marca: </strong>00000000000</p>                        
-                        <p><strong>Modelo: </strong>00000000000</p>                
-                        <p><strong>Placa: </strong>00000000000</p>
+                        <p><strong>Marca: </strong><span id="marcaTermo"></p>                        
+                        <p><strong>Modelo: </strong><span id="modeloTermo"></p>                
+                        <p><strong>Placa: </strong><span id="placaTermo"></p>
                     </div>
                     <div class="pt-4">
                         <p>
@@ -82,7 +86,7 @@
                         </div>
                     </div>
                     <div class="pt-4">
-                        <P><strong>Arujá,</strong></P>
+                        <P><strong>Arujá,<span id="dataTermo"></span></strong></P>
                     </div>
                     <div class="pt-4">
                         <P>
@@ -98,12 +102,28 @@
 
         <script>
             function geraTermo(){
+
+                let nome = document.getElementById("nome").value;
+                let sinistro = document.getElementById("sinistro").value;
+                let marca = document.getElementById("marca").value;
+                let modelo = document.getElementById("modelo").value;
+                let placa = document.getElementById("placa").value;
+                let data = document.getElementById("data").value;
+
+                document.getElementById("nomeTermo").innerHTML = `${nome}`;
+                document.getElementById("sinistroTermo").innerHTML = `${sinistro}`;
+                document.getElementById("marcaTermo").innerHTML = `${marca}`;
+                document.getElementById("modeloTermo").innerHTML = `${modelo}`;
+                document.getElementById("placaTermo").innerHTML = `${placa}`;
+                document.getElementById("dataTermo").innerHTML = ` ${data}`;
+                
                 document.getElementById("input").hidden = true;
                 document.getElementById("termo").hidden = false;
                 window.print();
                 document.getElementById("termo").hidden = true;
                 document.getElementById("input").hidden = false;
             }
+
         </script>
 
 
