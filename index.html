@@ -43,7 +43,7 @@
                             </div>
                         </div>
                         <div class="d-flex justify-content-end pt-4">
-                            <input type="submit" class="btn btn-primary " value="Gerar termo de quitação" onclick="oculta()">
+                            <input type="submit" class="btn btn-primary " value="Gerar termo de quitação" onclick="geraTermo()">
                         </div>
                     </form>
                 </div>
@@ -97,7 +97,7 @@
 
 
         <script>
-            function oculta(){
+            function geraTermo(){
                 document.getElementById("input").hidden = true;
                 document.getElementById("termo").hidden = false;
                 window.print();
